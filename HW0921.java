@@ -1,7 +1,8 @@
 public class HW0921 {
 	//
 	final static int MAX_STACK_SIZE = 5;
-	public static int arr[] = new int [MAX_STACK_SIZE];
+	public static int[] arr = new int [MAX_STACK_SIZE];
+    public static int temp = 5;
 
 	public static boolean isFull() {
         if(top()==MAX_STACK_SIZE-1)
@@ -13,7 +14,7 @@ public class HW0921 {
 	}
 	
 	public static boolean isEmpty() {
-        if(arr==null)
+        if(top()<0)
         {
             System.out.println("The Stack is EMPTY!!!");
             return true;
@@ -22,18 +23,28 @@ public class HW0921 {
 	}
 	
 	public static void push(int theElement) {
-        arr[top()] = theElement;
-        //return arr;
+        if(isFull()); //System.out.println("The Stack is FULL!!!");
+        else
+        {
+            int c = top()+1;
+            arr[c] = theElement;
+            temp--;   
+        }
 	}
 	
 	public static void pop() {
-        Integer i = null;
-        arr[top()].setNumber(i);
+        //System.out.println("POP!!");
+        if(isEmpty())
+        {
+            //System.out.println("The Stack is EMPTY!!!");
+        }
+        else temp++; 
 	}
 	
-	public static int top() {
+	public static int top() 
+    {
         int count = -1;
-        if(isEmpty())
+        if(arr==null)
         {
             return -1;
         }
@@ -50,13 +61,20 @@ public class HW0921 {
                     break;
                 }
             }
-            return count;
+            return count-temp;
         }
 	}
 	
 	public static void popall() {
-        System.out.println(arr[top()]);
-        pop();
+        for(Integer a : arr)
+        {
+            if(isEmpty());
+            else
+            {
+            System.out.println(arr[top()]);
+            pop();     
+            }      
+        }
 		// print the top and then pop it until the stack is empty
 	}
 	

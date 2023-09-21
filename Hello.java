@@ -1,12 +1,12 @@
 public class Hello{
 
 	final static int MAX_STACK_SIZE = 5;
-    public static int[] arr = new int[MAX_STACK_SIZE];
-    public static int temp = 4;
+    public static int[] arr = new int [MAX_STACK_SIZE];
+    public static int temp = 5; 
     public static void push(int theElement) 
     {
         //System.out.println(top());
-        int c = top();
+        int c = top()+1;
         arr[c] = theElement;
         temp--;
         //return arr;
@@ -27,20 +27,25 @@ public class Hello{
     public static int top() 
     {
         int count = -1;
-
-        for(Integer a : arr)
+        if(arr==null)
         {
-            if(a!=null)
-            {
-                count++;
-            }
-            else 
-            {
-                
-                break;
-            }
+            return -1;
         }
-        return count-temp;
+        else
+        {
+            for(Integer a : arr)
+            {
+                if(a!=null)
+                {
+                    count++;
+                }
+                else 
+                {
+                    break;
+                }
+            }       
+            return count-temp;    
+        }
     }   
 	    
 
